@@ -36,6 +36,13 @@ if (!COOKIE) {
     }
   }
 
+
+  // 获取当前积分数
+  async function get_cur_point(){
+      const res = await api.get_cur_point()
+      message(`当前矿石为：${res}`);
+  }
+
   api.check_in().then(() => {
     message(`签到成功`)
     if(ALL_IN === 'true'){
@@ -43,5 +50,7 @@ if (!COOKIE) {
       return
     }
     draw()
+  }).finally(()=>{
+      get_cur_point();
   })
 }
