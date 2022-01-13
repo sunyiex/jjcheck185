@@ -44,13 +44,13 @@ if (!COOKIE) {
   }
 
   api.check_in().then(() => {
-    api.dip_lucky()
-    message(`签到成功`)
-    if(ALL_IN === 'true'){
-      draw_all()
-      return
-    }
-    draw()
+    api.dip_lucky().then((res)=>{
+        if (res &&  res.data && res.data.total_value) {
+            let xiqi = res.data.total_value;
+            message(`沾喜气成功，幸运值：${xiqi}`);
+        }
+        draw()
+    })
   }).finally(()=>{
       get_cur_point();
   })
