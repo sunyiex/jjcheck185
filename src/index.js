@@ -44,6 +44,7 @@ if (!COOKIE) {
   }
 
   api.check_in().then(() => {
+    api.dip_lucky()
     message(`签到成功`)
     if(ALL_IN === 'true'){
       draw_all()
