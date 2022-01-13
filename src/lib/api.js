@@ -29,5 +29,17 @@ module.exports = function (cookie) {
         },
       })
     },
+    dip_lucky: function () {
+      return request({
+        method: 'POST',
+        url: 'https://api.juejin.cn/growth_api/v1/lottery_lucky/dip_lucky',
+        headers: {
+          cookie,
+        },
+        data:{
+            lottery_history_id:'7006968059592179748'
+        }
+      })
+    },
   }
 }
