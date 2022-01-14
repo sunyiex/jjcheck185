@@ -44,6 +44,7 @@ if (!COOKIE) {
   }
 
   api.check_in().then(() => {
+    message(`签到成功`)
     api.dip_lucky().then((res)=>{
         if (res &&  res.data && res.data.total_value) {
             let xiqi = res.data.total_value;
