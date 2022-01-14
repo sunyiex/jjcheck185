@@ -46,9 +46,14 @@ if (!COOKIE) {
   api.check_in().then(() => {
     message(`签到成功`)
     api.dip_lucky().then((res)=>{
-        if (res &&  res.data && res.data.total_value) {
-            let xiqi = res.data.total_value;
-            message(`沾喜气成功，幸运值：${xiqi}`);
+        if (res) {
+            let dip_value = res.dip_value;
+            let total_value = res.total_value;
+            if (res.has_dip) {
+                message(`已沾过喜气,幸运值：${total_value}`);
+            }else{
+                message(`沾喜气成功，+${dip_value},幸运值：${total_value}`);
+            }
         }
         draw()
     })
