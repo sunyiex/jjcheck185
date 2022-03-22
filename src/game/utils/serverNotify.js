@@ -29,7 +29,7 @@ function send({ pushKey, title, desp }) {
   });
 }
 
-const config = require('./config.js');
+const config = require('../../lib/config.js');
 
 let msg = '掘金：\n';
 module.exports = function bot(message) {

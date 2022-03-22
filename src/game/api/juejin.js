@@ -1,5 +1,5 @@
 const request = require('../utils/request');
-const { COOKIE } =  require('../utils/config.js');
+const { COOKIE } =  require('../../lib/config.js');
 
 module.exports = function () {
   return {

@@ -2,7 +2,7 @@
  * Created by huangqihong on 2022/1/8.
  */
 const request = require('../utils/request');
-const { TOKEN, COOKIE } =  require('../utils/config.js');
+const { TOKEN, COOKIE } =  require('../../lib/config.js');
 
 module.exports = function () {
   return {

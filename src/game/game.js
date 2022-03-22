@@ -4,7 +4,7 @@
 // const dotEnv = require('dotenv');
 // dotEnv.config('./env');
 
-const {TOKEN} = require('./utils/config.js');
+const {TOKEN} = require('../lib/config.js');
 const message = require('../lib/message');
 const miningApi = require('./api/mining')();
 const jwt = require('jsonwebtoken');
