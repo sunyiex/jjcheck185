@@ -2,7 +2,7 @@
  * Created by huangqihong on 2022/1/8.
  */
 module.exports = {
-  COOKIE: process.env.COOKIE || '_ga=GA1.2.860921523.1618974434; n_mh=wEtXsJEJ8q2opKSYi2ABuPIAasLeCI2MuO7PNos4Zy0; MONITOR_WEB_ID=02404f0e-9abb-423b-881f-6fe7bd7b6582; __tea_cookie_tokens_2608=%257B%2522user_unique_id%2522%253A%25226953442233299682829%2522%252C%2522web_id%2522%253A%25226953442233299682829%2522%252C%2522timestamp%2522%253A1642647427793%257D; _gid=GA1.2.349998296.1647791835; passport_csrf_token=6ae3651a614098f609b8ffd71a963c47; passport_csrf_token_default=6ae3651a614098f609b8ffd71a963c47; _tea_utm_cache_2018={%22utm_source%22:%22gold_browser_extension%22}; sid_guard=d33258bd468cb49ec013d51f9c2c279a%7C1647791851%7C5184000%7CThu%2C+19-May-2022+15%3A57%3A31+GMT; uid_tt=97f9fa5d0d50bfa1a232b8f3aeee8fd4; uid_tt_ss=97f9fa5d0d50bfa1a232b8f3aeee8fd4; sid_tt=d33258bd468cb49ec013d51f9c2c279a; sessionid=d33258bd468cb49ec013d51f9c2c279a; sessionid_ss=d33258bd468cb49ec013d51f9c2c279a; sid_ucp_v1=1.0.0-KDJlMTY4Y2QyMDg1M2RlNGNkZjA4ZmU1NTZhN2VlZjg3MTI4NmM2OWMKFgioksC-_fUFEOud3ZEGGLAUOAFA6gcaAmxmIiBkMzMyNThiZDQ2OGNiNDllYzAxM2Q1MWY5YzJjMjc5YQ; ssid_ucp_v1=1.0.0-KDJlMTY4Y2QyMDg1M2RlNGNkZjA4ZmU1NTZhN2VlZjg3MTI4NmM2OWMKFgioksC-_fUFEOud3ZEGGLAUOAFA6gcaAmxmIiBkMzMyNThiZDQ2OGNiNDllYzAxM2Q1MWY5YzJjMjc5YQ; _tea_utm_cache_2608={%22utm_source%22:%22gold_browser_extension%22}',
-  TOKEN: process.env.TOKEN || 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsInNvdXJjZSI6Imp1ZWppbiJ9.eyJleHBpcmVBdCI6MTY1MDQxNjMwNywidXNlcklkIjoiMjYwNDQwMDc0NTA5MjAiLCJpYXQiOjE2NDc4MjQzMDcsImV4cCI6MTY1MDQxNjMwN30.un-Jmkmf_hEbS5ECusLNG3ZjwlX83Por2YDKI8HjfyPzqT_r5Bpn_tFeBEoX-JZKxdjwG6bOZvp-wQHaklM-FlLnxHD43GjbTKWuRwQRbcWKuwV5x4lGhkbI64CswRlnzXJWcYPoGnK1qnUO0E2zU1qmsR3Dsi7AzsumtJ3DyVcLXhFlg5m8V2gaNWx3arFd0Mqx7TKeHsqe00gQGgXBiE_8b8MUX8YRLzU6s4JdUFpaF2cMFsbSKzPbsKIqRmjRJI7Hq1mfdLZmVDd8ev5-xT-MLO-9mj4lDO7X9xPMjK9xRoan6ULqllnz0a50_bKJgH7i2QH-nXu5QNuHnEDDSA',
-  SERVERID: process.env.SERVERID || 'SCT129935T1n8KbHCNnl1rEuXopBZiID72', // server酱
+  COOKIE: process.env.COOKIE || '',
+  TOKEN: process.env.TOKEN || '',
+  SERVERID: process.env.SERVERID || '', // server酱
 };
