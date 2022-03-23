@@ -29,8 +29,8 @@ module.exports = function gameStart() {
 
             let resInfo = await miningApi.getInfo(juejinUid, time);
             if (!resInfo.gameInfo) {
-                if(restart>30) {
-                    message("重启游戏次数超过30次，本次游戏失败")
+                if(restart>10) {
+                    message("重启游戏次数超过10次，本次游戏失败")
                     return;
                 }
                 message("gameId为0,重新开始游戏")
