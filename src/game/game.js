@@ -12,7 +12,7 @@ const firstData = require('./utils/first');
 
 module.exports = function gameStart() {
     let juejinUid = '';
-
+    let restart = 0;
     if (!TOKEN) {
         message('获取不到游戏必须得TOKEN，请检查设置')
     } else {
@@ -29,14 +29,21 @@ module.exports = function gameStart() {
 
             let resInfo = await miningApi.getInfo(juejinUid, time);
             if (!resInfo.gameInfo) {
+                if(restart>30) {
+                    message("重启游戏次数超过30次，本次游戏失败")
+                    return;
+                }
                 message("gameId为0,重新开始游戏")
+                restart++;
                 try {
                     let startResult = await miningApi.start({"roleId":1}, juejinUid, time);
                     console.info(startResult);
+                    message("重新开始游戏成功," + JSON.stringify(startResult));
                 } catch (e){
                     console.info(e);
+                    message("重新开始游戏错误," + JSON.stringify(e));
                 }
-
+                await sleep(3000)
                 resInfo = await miningApi.getInfo(juejinUid, time);
             }
             deep = resInfo.gameInfo ? resInfo.gameInfo.deep : 0;
