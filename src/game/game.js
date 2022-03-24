@@ -55,7 +55,7 @@ module.exports = function gameStart() {
         }
 
         getInfo().then(() => {
-            if (todayDiamond <= todayLimitDiamond) {
+            if (todayDiamond < todayLimitDiamond) {
                 playGame().then(() => {
                     message("游戏结束");
                 }).catch(e => {
@@ -113,7 +113,7 @@ module.exports = function gameStart() {
                 }
                 await sleep(3000);
                 await getInfo().then((res) => {
-                    if (todayDiamond <= todayLimitDiamond) {
+                    if (todayDiamond < todayLimitDiamond) {
                         playGame()
                     } else {
                         message(`今日限制矿石${res.userInfo.todayLimitDiamond},已获取矿石${res.userInfo.todayDiamond}`)
@@ -130,7 +130,7 @@ module.exports = function gameStart() {
                 await miningApi.over(overParams, juejinUid, overTime);
                 await sleep(3000);
                 await getInfo().then((res) => {
-                    if (todayDiamond <= todayLimitDiamond) {
+                    if (todayDiamond < todayLimitDiamond) {
                         playGame()
                     } else {
                         message(`今日限制矿石${res.userInfo.todayLimitDiamond},已获取矿石${res.userInfo.todayDiamond}`)
