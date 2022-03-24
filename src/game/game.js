@@ -9,10 +9,10 @@ const message = require('../lib/message');
 const miningApi = require('./api/mining')();
 const jwt = require('jsonwebtoken');
 const firstData = require('./utils/first');
+let restart = 1;
 
 module.exports = function gameStart() {
     let juejinUid = '';
-    let restart = 0;
     if (!TOKEN) {
         message('获取不到游戏必须得TOKEN，请检查设置')
     } else {
@@ -29,17 +29,17 @@ module.exports = function gameStart() {
 
             let resInfo = await miningApi.getInfo(juejinUid, time);
             if (!resInfo.gameInfo) {
-                if(restart>10) {
+                if (restart > 10) {
                     message("重启游戏次数超过10次，本次游戏失败")
-                    return;
+                    throw new Error("重启游戏次数超过10次，本次游戏失败");
                 }
-                message("gameId为0,重新开始游戏")
+                message("gameId为0,重新开始游戏，" + restart + "次")
                 restart++;
                 try {
-                    let startResult = await miningApi.start({"roleId":1}, juejinUid, time);
+                    let startResult = await miningApi.start({"roleId": 1}, juejinUid, time);
                     console.info(startResult);
                     message("重新开始游戏成功," + JSON.stringify(startResult));
-                } catch (e){
+                } catch (e) {
                     console.info(e);
                     message("重新开始游戏错误," + JSON.stringify(e));
                 }
@@ -55,7 +55,7 @@ module.exports = function gameStart() {
         }
 
         getInfo().then(() => {
-            if (todayDiamond < todayLimitDiamond) {
+            if (todayDiamond <= todayLimitDiamond) {
                 playGame().then(() => {
                     message("游戏结束");
                 }).catch(e => {
@@ -113,7 +113,7 @@ module.exports = function gameStart() {
                 }
                 await sleep(3000);
                 await getInfo().then((res) => {
-                    if (todayDiamond < todayLimitDiamond) {
+                    if (todayDiamond <= todayLimitDiamond) {
                         playGame()
                     } else {
                         message(`今日限制矿石${res.userInfo.todayLimitDiamond},已获取矿石${res.userInfo.todayDiamond}`)
@@ -130,7 +130,7 @@ module.exports = function gameStart() {
                 await miningApi.over(overParams, juejinUid, overTime);
                 await sleep(3000);
                 await getInfo().then((res) => {
-                    if (todayDiamond < todayLimitDiamond) {
+                    if (todayDiamond <= todayLimitDiamond) {
                         playGame()
                     } else {
                         message(`今日限制矿石${res.userInfo.todayLimitDiamond},已获取矿石${res.userInfo.todayDiamond}`)
