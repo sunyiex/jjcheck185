@@ -1,38 +1,10 @@
-
 const firstData = {
-    "command": [
-        {
+    "command": [{
+        "times": 10,
+        "command": [{
             "times": 10,
-            "command": [
-                {
-                    "times": 10,
-                    "command": [
-                        {
-                            "times": 10,
-                            "command": [
-                                "D",
-                                "2",
-                                "R",
-                                "D",
-                                "4",
-                                "D",
-                                "L",
-                                "D",
-                                "6",
-                                "R",
-                                "D",
-                                "R",
-                            ],
-                        },
-                        "U",
-                        "R",
-                    ],
-                },
-                "U",
-                "L",
-                "L",
-            ],
-        },
-    ],
-};
+            "command": [{"times": 10, "command": ["D", "2", "L", "L", "L", "4", "D", "D", "R", "R", "R", "6"]}]
+        }]
+    }]
+}
 module.exports = firstData;

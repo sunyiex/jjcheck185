@@ -36,7 +36,7 @@ module.exports = function gameStart() {
                 message("gameId为0,重新开始游戏，" + restart + "次")
                 restart++;
                 try {
-                    let startResult = await miningApi.start({"roleId": 1}, juejinUid, time);
+                    let startResult = await miningApi.start({"roleId": 2}, juejinUid, time);
                     console.info(startResult);
                     message("重新开始游戏成功," + JSON.stringify(startResult));
                 } catch (e) {
