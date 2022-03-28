@@ -75,17 +75,20 @@ module.exports = function gameStart() {
         /**
          * 循环游戏
          */
-        async function playGame() {
+        async function playGame(startGameId) {
             try {
                 // 开始
                 const startTime = new Date().getTime();
                 const startParams = {
                     roleId: 3,
                 };
-                const startData = await miningApi.start(startParams, juejinUid, startTime);
-                await sleep(3000);
-                console.log('startData', startData);
-                gameId = startData.gameId;
+                if (!gameId || gameId == 0) {
+                    const startData = await miningApi.start(startParams, juejinUid, startTime);
+                    await sleep(3000);
+                    console.log('startData', startData);
+                    gameId = startData.gameId;
+                }
+
                 // 发起指令
                 const commandTime = +new Date().getTime();
                 const commandParams = {
