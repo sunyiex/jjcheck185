@@ -38,7 +38,7 @@ module.exports = function gameStart() {
                 try {
                     let startResult = await miningApi.start({"roleId": 2}, juejinUid, time);
                     console.info(startResult);
-                    message("重新开始游戏成功," + JSON.stringify(startResult));
+                    message("重新开始游戏成功");
                 } catch (e) {
                     console.info(e);
                     message("重新开始游戏错误," + JSON.stringify(e));
