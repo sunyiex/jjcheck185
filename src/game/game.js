@@ -33,12 +33,12 @@ module.exports = function gameStart() {
                     message("重启游戏次数超过10次，本次游戏失败")
                     throw new Error("重启游戏次数超过10次，本次游戏失败");
                 }
-                message("gameId为0,重新开始游戏，" + restart + "次")
+                // message("gameId为0,重新开始游戏，" + restart + "次")
                 restart++;
                 try {
                     let startResult = await miningApi.start({"roleId": 2}, juejinUid, time);
                     console.info(startResult);
-                    message("重新开始游戏成功");
+                    // message("重新开始游戏成功");
                 } catch (e) {
                     console.info(e);
                     message("重新开始游戏错误," + JSON.stringify(e));
