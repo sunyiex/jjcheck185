@@ -12,7 +12,8 @@ jobs:
         uses: actions/checkout@master
 
       # /github/workspace
-      - uses: srt32/git-actions@v0.0.3
+      - name: --add safe.director
+        uses: srt32/git-actions@v0.0.3
         with:
           args: git config --global --add safe.directory /github/workspace
 
