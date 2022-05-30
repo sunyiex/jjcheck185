@@ -24,7 +24,12 @@ module.exports = function gameStart() {
         async function getInfo() {
             const time = new Date().getTime();
             console.log(todayDiamond, todayLimitDiamond);
-            const userInfo = await miningApi.getUser();
+            let userInfo;
+            try {
+                userInfo = await miningApi.getUser();
+            } catch (e){
+                message("getUser错误，检查COOKIE");
+            }
             juejinUid = userInfo.user_id;
 
             let resInfo = await miningApi.getInfo(juejinUid, time);
