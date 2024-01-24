@@ -37,7 +37,7 @@ module.exports = function (cookie) {
           cookie,
         },
         data:{
-            lottery_history_id:'7006968059592179748'
+            lottery_history_id:'7261307244375965755'
         }
       })
     },
