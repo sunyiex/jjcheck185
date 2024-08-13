@@ -1,11 +1,11 @@
-const {COOKIE, ALL_IN} = require('./lib/config')
+const {COOKIE, ALL_IN,CHECK_PARAM} = require('./lib/config')
 const message = require('./lib/message')
 const gameStart = require('./game/game')
 
 if (!COOKIE) {
     message('获取不到cookie，请检查设置')
 } else {
-    const api = require('./lib/api')(COOKIE)
+    const api = require('./lib/api')(COOKIE, CHECK_PARAM);
 
     // 获取可抽奖次数
     async function get_raw_time() {
@@ -44,7 +44,8 @@ if (!COOKIE) {
         message(`当前矿石为：${res}`);
     }
 
-    api.check_in().then(() => {
+   api.check_in().then((rep) => {
+        message(rep)
         message(`签到成功`)
         api.dip_lucky().then((res) => {
             if (res) {
@@ -64,6 +65,6 @@ if (!COOKIE) {
         }
     }).finally(() => {
             get_cur_point();
-            gameStart();
-        })
+            // gameStart();
+    })
 }
