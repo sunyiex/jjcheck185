@@ -1,11 +1,11 @@
 const request = require('./request')
 
-module.exports = function (cookie) {
+module.exports = function (cookie, checkParam) {
   return {
     check_in: function () {
       return request({
         method: 'POST',
-        url: 'https://api.juejin.cn/growth_api/v1/check_in',
+          url: 'https://api.juejin.cn/growth_api/v1/check_in' + checkParam,
         headers: {
           cookie,
         },
